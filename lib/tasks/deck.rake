@@ -1,4 +1,4 @@
-namespace :decks do
+namespace :deck do
 	desc "Generate 5 decks with Titles, and descriptions"
 	task :generate_decks => :environment do
 		5.times do
