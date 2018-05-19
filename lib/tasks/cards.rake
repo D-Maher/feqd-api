@@ -3,6 +3,7 @@ namespace :cards do
 	task :generate_cards => :environment do
 		50.times do
 			Card.create(
+				deck_id: (1..5).to_a.sample,
 				prompt: Faker::HowIMetYourMother.quote	
 			)
 		end

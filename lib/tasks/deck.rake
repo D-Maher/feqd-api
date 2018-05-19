@@ -3,8 +3,8 @@ namespace :decks do
 	task :generate_decks => :environment do
 		5.times do
 			Deck.create(
-				Title: Faker::Beer.name	
-				Description: Faker::Beer.style
+				title: Faker::Beer.name,
+				description: Faker::Beer.style
 			)
 		end
 	end
