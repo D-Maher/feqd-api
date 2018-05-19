@@ -80,6 +80,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  adapter: postgresql
   <<: *default
   database: piccolo_boyz_production
   username: piccolo_boyz
