@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  
 	# GET /decks
   def index
     render json: Deck.all
