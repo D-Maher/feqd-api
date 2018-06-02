@@ -1,4 +1,5 @@
 class Admin::CardsController < ActionController::Base
+
   before_action :set_card, only: %i[show edit update destroy]
 
   # GET /cards
@@ -45,7 +46,8 @@ class Admin::CardsController < ActionController::Base
   # Only allow a trusted parameter "white list" through.
   def card_params
     params.require(:card).permit(
-      :prompt
+      :prompt,
     )
   end
+
 end
