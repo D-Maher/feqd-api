@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: piccolo_boyz_development
+  database: feqd_api_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: piccolo_boyz_production
+  database: feqd_api_production
   username: piccolo_boyz
   password: <%= ENV['PICCOLO_BOYZ_DATABASE_PASSWORD'] %>
