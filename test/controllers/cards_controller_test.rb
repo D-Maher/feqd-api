@@ -1,17 +1,18 @@
-require 'test_helper'
+require "test_helper"
 
 class CardsControllerTest < ActionDispatch::IntegrationTest
+
   def setup
     @card = cards(:one)
     @other_card = cards(:three)
   end
 
-  test 'should get all cards' do
+  test "should get all cards" do
     get cards_url
     assert_response :success
   end
 
-  test 'should get specific card based on a unique id' do
+  test "should get specific card based on a unique id" do
     get card_url(@card)
     assert_response :success
   end
@@ -27,4 +28,5 @@ class CardsControllerTest < ActionDispatch::IntegrationTest
   # test "should destroy a card" do
 
   # end
+
 end
