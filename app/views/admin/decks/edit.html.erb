@@ -1,0 +1,25 @@
+<div>
+<h1>Edit Deck Form</h1>
+<!--<h2>admin/decks/edit.html.erb</h2>-->
+<div>
+<h4>Edit Deck</h4>
+  <%= form_for(@deck, url: admin_deck_path) do |f| %>
+    <strong>Current Title:</strong> <%= @deck.title %><br><br>
+    <strong><%= f.label :title, "New Title:" %></strong>&nbsp;&nbsp;
+    <%= f.text_field :title %><br><br>
+    <strong>Current Description:</strong> <%= @deck.description %><br><br>
+    <strong><%= f.label :description, "New Description" %></strong>&nbsp;&nbsp;
+    <%= f.text_area :description, size: "30x10" %><br><br>
+    <%= f.submit "Update Deck" %><br>
+  <%end%>
+</div>
+<table>
+  <tr>
+    <td width="30%">
+      <%= link_to "Create a Deck", new_admin_deck_path %>
+    </td>
+    <td width="30%">
+      <%= link_to "View Decks", admin_decks_path %>
+    </td>
+  </tr>
+</table>
