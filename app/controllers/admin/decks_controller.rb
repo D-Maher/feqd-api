@@ -49,4 +49,4 @@ class Admin::DecksController < ActionController::Base
       :prompt
     )
   end
-  end
+end

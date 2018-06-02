@@ -44,4 +44,4 @@ class Admin::CardsController < ActionController::Base
       :prompt
     )
   end
-  end
+end
