@@ -1,0 +1,22 @@
+<div>
+<h1>Edit Card Form</h1>
+<h2>admin/edit.html.erb</h2>
+<div>
+<h4>Edit Prompt</h4>
+  <%= form_for(@card, url: admin_card_path) do |f| %>
+    <strong>Current prompt:</strong> <%= @card.prompt %><br><br>
+    <strong><%= f.label :prompt, "New Prompt:" %></strong>&nbsp;&nbsp;
+    <%= f.text_area :prompt, size: "30x10" %><br><br>
+    <%= f.submit "Update Card" %><br>
+  <%end%>
+</div>
+<table>
+  <tr>
+    <td width="30%">
+      <%= link_to "Create a Card", new_admin_card_path %>
+    </td>
+    <td width="30%">
+      <%= link_to "View Cards", admin_cards_path %>
+    </td>
+  </tr>
+</table>
