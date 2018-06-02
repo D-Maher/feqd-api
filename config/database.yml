@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: feqd_api_production
-  username: piccolo_boyz
-  password: <%= ENV['PICCOLO_BOYZ_DATABASE_PASSWORD'] %>
