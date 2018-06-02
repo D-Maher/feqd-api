@@ -1,0 +1,18 @@
+<h2>Deck Title:</h2>
+<%= @deck.title %><br><br>
+<h2>Deck Description:</h2>
+<%= @deck.description %><br><br><br>
+
+<table>
+  <tr>
+    <td width="30%">
+      <%= link_to "Edit Deck", edit_admin_deck_path %>
+    </td>
+    <td width="30%">
+      <%= link_to "Create a Deck", new_admin_deck_path %>
+    </td>
+    <td width="30%">
+      <%= link_to "View Decks", admin_decks_path %>
+    </td>
+  </tr>
+</table>

@@ -4,32 +4,27 @@ class Admin::DecksController < ActionController::Base
 
   # GET /decks
   def index
-    render json: Deck.all
+    @decks = Deck.all
   end
 
   # GET /decks/:deck_id
   def show
-    render json: @deck
+    @deck = Deck.find(params[:id])
   end
 
   # POST /decks
   def create
-    deck = Deck.new(deck_params)
+    @deck = deck.new(deck_params)
+    redirect_to admin_decks_path if @deck.save
+  end
 
-    if deck.save
-      render json: deck
-    else
-      render deck.errors, status: :unprocessable_entity
-    end
+  def edit
+    @deck = Deck.find(params[:id])
   end
 
   # PATCH/PUT /decks/:deck_id
   def update
-    if @deck.update(deck_params)
-      render json: @deck
-    else
-      render json: @deck.errors, status: :unprocessable_entity
-    end
+    redirect_to admin_deck_path if @deck.update(deck_params)
   end
 
   # DELETE /decks/:deck_id
@@ -47,7 +42,8 @@ class Admin::DecksController < ActionController::Base
   # Only allow a trusted parameter "white list" through.
   def deck_params
     params.require(:deck).permit(
-      :prompt,
+      :title,
+      :description,
     )
   end
 
