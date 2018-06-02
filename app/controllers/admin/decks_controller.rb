@@ -1,4 +1,5 @@
 class Admin::DecksController < ActionController::Base
+
   before_action :set_deck, only: %i[show edit update destroy]
 
   # GET /decks
@@ -46,7 +47,8 @@ class Admin::DecksController < ActionController::Base
   # Only allow a trusted parameter "white list" through.
   def deck_params
     params.require(:deck).permit(
-      :prompt
+      :prompt,
     )
   end
+
 end
