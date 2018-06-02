@@ -21,9 +21,13 @@ class Admin::CardsController < ActionController::Base
     redirect_to admin_cards_path if @card.save
   end
 
+  def edit
+    @card = Card.find(params[:id])
+  end
+
   # PATCH/PUT /cards/:card_id
   def update
-    redirect_to @card if @card.update(card_params)
+    redirect_to admin_card_path if @card.update(card_params)
   end
 
   # DELETE /cards/:card_id
