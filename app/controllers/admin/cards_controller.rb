@@ -1,34 +1,29 @@
-class CardsController < ApplicationController
+class Admin::CardsController < ActionController::Base
   before_action :set_card, only: %i[show edit update destroy]
 
   # GET /cards
   def index
-    render json: Card.all
+    @cards = Card.all
   end
 
   # GET /cards/:card_id
   def show
-    render json: @card
+    @card = Card.find(params[:id])
+  end
+
+  def new
+    @card = Card.new
   end
 
   # POST /cards
   def create
-    card = Card.new(card_params)
-
-    if card.save
-      render json: card
-    else
-      render card.errors, status: :unprocessable_entity
-    end
+    @card = Card.new(card_params)
+    redirect_to admin_cards_path if @card.save
   end
 
   # PATCH/PUT /cards/:card_id
   def update
-    if @card.update(card_params)
-      render json: @card
-    else
-      render json: @card.errors, status: :unprocessable_entity
-    end
+    redirect_to @card if @card.update(card_params)
   end
 
   # DELETE /cards/:card_id

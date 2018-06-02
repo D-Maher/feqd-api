@@ -10,29 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225074023) do
-
+ActiveRecord::Schema.define(version: 20_180_225_074_023) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "card_memberships", force: :cascade do |t|
-    t.bigint "card_id"
-    t.bigint "deck_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'card_memberships', force: :cascade do |t|
+    t.bigint 'card_id'
+    t.bigint 'deck_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "cards", force: :cascade do |t|
-    t.string "prompt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'cards', force: :cascade do |t|
+    t.string 'prompt'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "decks", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'decks', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

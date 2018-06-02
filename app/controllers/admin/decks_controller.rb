@@ -1,4 +1,4 @@
-class DecksController < ApplicationController
+class Admin::DecksController < ActionController::Base
   before_action :set_deck, only: %i[show edit update destroy]
 
   # GET /decks
