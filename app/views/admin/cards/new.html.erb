@@ -4,9 +4,9 @@
 <div>
 <h4>Import New Prompts</h4>
   <%= form_for(@card, url: admin_cards_path) do |f| %>
-  <%= f.label :prompt %>
-  <%= f.text_field :prompt %>
-  <%= f.submit "Create Card" %>
+    <%= f.label :prompt %>
+    <%= f.text_field :prompt %>
+    <%= f.submit "Create Card" %>
   <%end%>
 </div>
 <table>
