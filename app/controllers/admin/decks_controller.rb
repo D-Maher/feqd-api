@@ -12,9 +12,13 @@ class Admin::DecksController < ActionController::Base
     @deck = Deck.find(params[:id])
   end
 
+  def new
+    @deck = Deck.new
+  end
+
   # POST /decks
   def create
-    @deck = deck.new(deck_params)
+    @deck = Deck.new(deck_params)
     redirect_to admin_decks_path if @deck.save
   end
 
