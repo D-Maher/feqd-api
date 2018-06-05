@@ -33,7 +33,8 @@ class Admin::CardsController < ActionController::Base
 
   # DELETE /cards/:card_id
   def destroy
-    @card.destroy
+    Card.find(params[:id]).destroy
+    redirect_to admin_cards_path
   end
 
   private

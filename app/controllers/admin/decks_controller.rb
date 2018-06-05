@@ -33,7 +33,8 @@ class Admin::DecksController < ActionController::Base
 
   # DELETE /decks/:deck_id
   def destroy
-    @deck.destroy
+    Deck.find(params[:id]).destroy
+    redirect_to admin_decks_path
   end
 
   private

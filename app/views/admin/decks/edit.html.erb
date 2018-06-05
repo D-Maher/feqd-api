@@ -1,6 +1,5 @@
 <div>
 <h1>Edit Deck Form</h1>
-<!--<h2>admin/decks/edit.html.erb</h2>-->
 <div>
 <h4>Edit Deck</h4>
   <%= form_for(@deck, url: admin_deck_path) do |f| %>
@@ -12,6 +11,9 @@
     <%= f.text_area :description, size: "30x10" %><br><br>
     <%= f.submit "Update Deck" %><br>
   <%end%>
+</div>
+<div>
+  <%= button_to "Delete Card", admin_card_path, :method => "delete" %>
 </div>
 <table>
   <tr>
