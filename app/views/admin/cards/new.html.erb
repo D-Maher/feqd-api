@@ -8,13 +8,4 @@
     <%= f.submit "Create Card" %>
   <%end%>
 </div>
-<table>
-  <tr>
-    <td width="30%">
-      <%= link_to "Create a Card", new_admin_card_path %>
-    </td>
-    <td width="30%">
-      <%= link_to "View Cards", admin_cards_path %>
-    </td>
-  </tr>
-</table>
+<%= render '/layouts/footer'%>
