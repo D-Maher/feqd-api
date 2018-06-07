@@ -15,4 +15,14 @@
 <div>
   <%= button_to "Delete Card", admin_deck_path, :method => "delete" %>
 </div>
+<hr>
+<h1>Cards In Deck</h1>
+
+<table>
+<% @memberships.each do |membership| %>
+    <ul>
+      <li><%= membership.card.prompt %></li>
+    </ul>
+  <%end%>
+</table>
 <%= render '/layouts/footer'%>

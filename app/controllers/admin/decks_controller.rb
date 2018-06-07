@@ -24,6 +24,8 @@ class Admin::DecksController < ActionController::Base
 
   def edit
     @deck = Deck.find(params[:id])
+    @cards = Card.all
+    @memberships = @deck.card_memberships
   end
 
   # PATCH/PUT /decks/:deck_id
@@ -51,5 +53,12 @@ class Admin::DecksController < ActionController::Base
       :description,
     )
   end
+
+  #def membership_params
+   # params.require(:membership).permit(
+    #  :card_id,
+     # :deck_id,
+    #)
+  #end
 
 end
