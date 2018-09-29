@@ -34,8 +34,8 @@
 <% @cards_not_in_deck.each do |card| %>
   <p><%= card.prompt %></p>
   <%= form_for(@card_membership, :url => { controller: "admin/card_memberships", action: "create" }) do |f| %>
-      <%= f.hidden_field :deck_id, value: @deck.id %>
-      <%= f.hidden_field :card_id, value: card.id %>
+    <%= f.hidden_field :deck_id, value: @deck.id %>
+    <%= f.hidden_field :card_id, value: card.id %>
     <%= f.submit "Add Card to Deck" %><br>
   <% end %>
 <%end%>
