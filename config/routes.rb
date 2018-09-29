@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cards
     resources :decks
+    resources :card_memberships
   end
 
   resources :cards
