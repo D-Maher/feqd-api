@@ -48,6 +48,7 @@ class Admin::CardsController < ActionController::Base
   def card_params
     params.require(:card).permit(
       :prompt,
+      :min_players,
     )
   end
 

@@ -3,6 +3,8 @@
 <div>
 <h4>Create New Card</h4>
   <%= form_for(@card, url: admin_cards_path) do |f| %>
+    <%= f.label :min_players %>
+    <%= f.text_field :min_players %><br><br>
     <%= f.label :prompt %>
     <%= f.text_area :prompt, size: "30x10" %>
     <%= f.submit "Create Card" %>
