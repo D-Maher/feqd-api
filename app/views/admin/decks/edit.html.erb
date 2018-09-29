@@ -1,7 +1,7 @@
-<div>
 <h1>Edit Deck Form</h1>
+
 <div>
-<h4>Edit Deck</h4>
+  <h4>Edit Deck</h4>
   <%= form_for(@deck, url: admin_deck_path) do |f| %>
     <strong>Current Title:</strong> <%= @deck.title %><br><br>
     <strong><%= f.label :title, "New Title:" %></strong>&nbsp;&nbsp;
@@ -12,17 +12,32 @@
     <%= f.submit "Update Deck" %><br>
   <%end%>
 </div>
+
 <div>
-  <%= button_to "Delete Card", admin_deck_path, :method => "delete" %>
+  <%= button_to "Delete Deck", admin_deck_path, :method => "delete" %>
 </div>
+
 <hr>
+
 <h1>Cards In Deck</h1>
 
-<table>
-<% @memberships.each do |membership| %>
-    <ul>
-      <li><%= membership.card.prompt %></li>
-    </ul>
-  <%end%>
-</table>
+<% @card_memberships.each do |card_membership| %>
+  <% card = card_membership.card %>
+  <p><%= card.prompt %></p>
+  <%= button_to 'Delete', admin_card_membership_path(card_membership), method: :delete %>
+<%end%>
+
+<hr>
+
+<h1>Cards Not In Deck</h1>
+
+<% @cards_not_in_deck.each do |card| %>
+  <p><%= card.prompt %></p>
+  <%= form_for(@card_membership, :url => { controller: "admin/card_memberships", action: "create" }) do |f| %>
+      <%= f.hidden_field :deck_id, value: @deck.id %>
+      <%= f.hidden_field :card_id, value: card.id %>
+    <%= f.submit "Add Card to Deck" %><br>
+  <% end %>
+<%end%>
+
 <%= render '/layouts/footer'%>
