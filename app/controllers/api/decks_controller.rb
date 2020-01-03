@@ -1,4 +1,4 @@
-class DecksController < ApplicationController
+class Api::DecksController < Api::ApplicationController
 
   before_action :set_deck, only: %i[show edit update destroy]
 

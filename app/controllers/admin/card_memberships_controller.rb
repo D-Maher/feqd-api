@@ -1,4 +1,4 @@
-class Admin::CardMembershipsController < ApplicationController
+class Admin::CardMembershipsController < Admin::AdminController
 
   before_action :set_deck, only: :create
   before_action :set_card, only: :create

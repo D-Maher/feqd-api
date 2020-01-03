@@ -1,4 +1,4 @@
-class Admin::DecksController < ActionController::Base
+class Admin::DecksController < Admin::AdminController
 
   before_action :set_deck, only: %i[show edit update destroy]
 
