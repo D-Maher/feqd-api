@@ -1,4 +1,4 @@
-class Admin::CardsController < ActionController::Base
+class Admin::CardsController < Admin::AdminController
 
   before_action :set_card, only: %i[show edit update destroy]
 

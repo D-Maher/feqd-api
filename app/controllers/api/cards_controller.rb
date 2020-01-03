@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Api::CardsController < Api::ApplicationController
 
   before_action :set_card, only: %i[show edit update destroy]
 

@@ -25,6 +25,8 @@ gem "puma", "~> 3.7"
 gem "faker"
 gem "rack-cors"
 
+gem "haml"
+
 group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
