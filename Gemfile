@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 5.1.4"
+# Addresses CVE-2019-5418. Read more: https://github.com/advisories/GHSA-86g5-2wh3-gc9j
+gem "actionview", ">= 5.1.6.2"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 0.18"
 # Use Puma as the app server

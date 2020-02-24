@@ -166,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview (>= 5.1.6.2)
   annotate
   better_errors
   binding_of_caller
