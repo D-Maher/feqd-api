@@ -29,6 +29,8 @@ gem "rack-cors"
 gem "haml"
 
 group :development, :test do
+  gem "annotate"
+  gem "binding_of_caller"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rubocop"
