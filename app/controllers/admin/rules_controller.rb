@@ -40,8 +40,6 @@ class Admin::RulesController < Admin::AdminController
 
   # DELETE /rules/1
   def destroy
-    puts "@rule:"
-    p @rule
     @rule.destroy
     redirect_to admin_rules_path, notice: "Rule was successfully destroyed."
   end
