@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Cards
+%table
+  %thead
+    %tr
+      %th Prompt
+      %th Min players
+      %th{colspan: "2"}
+  %tbody
+    - @cards.each do |card|
+      %tr
+        %td= card.prompt
+        %td= card.min_players
+        %td= link_to 'Show', [:admin, card]
+        %td= link_to 'Edit', edit_admin_card_path(card)
+        %td= link_to 'Destroy', [:admin, card], method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Card', new_admin_card_path

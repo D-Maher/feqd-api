@@ -1,9 +1,0 @@
-<h1>Decks</h1>
-
-<table>
-<% @decks.each do |deck| %>
-  <ul>
-    <li><%= link_to deck.title, admin_deck_path(deck.id) %></li>
-  </ul>
-  <%end%>
-</table>

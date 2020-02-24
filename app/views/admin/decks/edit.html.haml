@@ -1,0 +1,23 @@
+%h1 Editing Deck
+= render 'form', deck: @deck
+= link_to 'Show', admin_deck_path(@deck)
+|
+= link_to 'Back', admin_decks_path
+
+%hr/
+
+%h1 Cards In Deck
+- @card_memberships.each do |card_membership|
+  - card = card_membership.card
+  %p= card.prompt
+  = button_to 'Delete', admin_card_membership_path(card_membership), method: :delete
+
+%hr/
+
+%h1 Cards Not In Deck
+- @cards_not_in_deck.each do |card|
+  %p= card.prompt
+  = form_for(@card_membership, :url => { controller: "admin/card_memberships", action: "create" }) do |f|
+    = f.hidden_field :deck_id, value: @deck.id
+    = f.hidden_field :card_id, value: card.id
+    = f.submit "Add Card to Deck"

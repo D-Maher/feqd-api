@@ -1,0 +1,19 @@
+%p#notice= notice
+%h1 Decks
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Min players
+      %th{colspan: "3"}
+  %tbody
+    - @decks.each do |deck|
+      %tr
+        %td= deck.title
+        %td= deck.description
+        %td= link_to 'Show', [:admin, deck]
+        %td= link_to 'Edit', edit_admin_deck_path(deck)
+        %td= link_to 'Destroy', [:admin, deck], method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Deck', new_admin_deck_path

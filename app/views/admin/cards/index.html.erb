@@ -1,9 +1,0 @@
-<h1>Cards</h1>
-
-<table>
-<% @cards.each do |card| %>
-  <ul>
-    <li><%= link_to card.prompt, admin_card_path(card.id) %></li>
-  </ul>
-  <%end%>
-</table>
