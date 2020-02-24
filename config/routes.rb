@@ -3,11 +3,16 @@ Rails.application.routes.draw do
   root "api/cards#index"
 
   namespace :admin do
+    root "rules#index"
+
     resources :cards
     resources :decks
     resources :card_memberships
+    resources :rules
   end
 
-  resources :cards
-  resources :decks
+  namespace :api do
+    resources :cards
+    resources :decks
+  end
 end

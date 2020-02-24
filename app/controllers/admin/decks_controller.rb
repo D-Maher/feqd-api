@@ -7,38 +7,46 @@ class Admin::DecksController < Admin::AdminController
     @decks = Deck.all
   end
 
-  # GET /decks/:deck_id
-  def show
-    @deck = Deck.find(params[:id])
-  end
+  # GET /decks/1
+  def show; end
 
+  # GET /decks/new
   def new
     @deck = Deck.new
   end
 
-  # POST /decks
-  def create
-    @deck = Deck.new(deck_params)
-    redirect_to admin_decks_path if @deck.save
-  end
-
+  # GET /decks/1/edit
   def edit
-    @deck = Deck.find(params[:id])
     @cards = @deck.cards
     @card_memberships = @deck.card_memberships.includes(:card)
     @card_membership = CardMembership.new
     @cards_not_in_deck = Card.all - @cards
   end
 
-  # PATCH/PUT /decks/:deck_id
-  def update
-    redirect_to admin_deck_path if @deck.update(deck_params)
+  # POST /decks
+  def create
+    @deck = Deck.new(deck_params)
+
+    if @deck.save
+      redirect_to admin_deck_path(@deck), notice: "Deck was successfully created."
+    else
+      render :new
+    end
   end
 
-  # DELETE /decks/:deck_id
+  # PATCH/PUT /decks/1
+  def update
+    if @deck.update(deck_params)
+      redirect_to admin_deck_path(@deck), notice: "Deck was successfully updated."
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /decks/1
   def destroy
-    Deck.find(params[:id]).destroy
-    redirect_to admin_decks_path
+    @deck.destroy
+    redirect_to admin_decks_path, notice: "Deck was successfully destroyed."
   end
 
   private
@@ -50,10 +58,7 @@ class Admin::DecksController < Admin::AdminController
 
   # Only allow a trusted parameter "white list" through.
   def deck_params
-    params.require(:deck).permit(
-      :title,
-      :description,
-    )
+    params.require(:deck).permit(:title, :description, :min_players)
   end
 
 end

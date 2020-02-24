@@ -7,34 +7,41 @@ class Admin::CardsController < Admin::AdminController
     @cards = Card.all
   end
 
-  # GET /cards/:card_id
-  def show
-    @card = Card.find(params[:id])
-  end
+  # GET /cards/1
+  def show; end
 
+  # GET /cards/new
   def new
     @card = Card.new
   end
 
+  # GET /cards/1/edit
+  def edit; end
+
   # POST /cards
   def create
     @card = Card.new(card_params)
-    redirect_to admin_cards_path if @card.save
+
+    if @card.save
+      redirect_to admin_card_path(@card), notice: "Card was successfully created."
+    else
+      render :new
+    end
   end
 
-  def edit
-    @card = Card.find(params[:id])
-  end
-
-  # PATCH/PUT /cards/:card_id
+  # PATCH/PUT /cards/1
   def update
-    redirect_to admin_card_path if @card.update(card_params)
+    if @card.update(card_params)
+      redirect_to admin_card_path(@card), notice: "Card was successfully updated."
+    else
+      render :edit
+    end
   end
 
-  # DELETE /cards/:card_id
+  # DELETE /cards/1
   def destroy
-    Card.find(params[:id]).destroy
-    redirect_to admin_cards_path
+    @card.destroy
+    redirect_to admin_cards_path, notice: "Card was successfully destroyed."
   end
 
   private
@@ -46,10 +53,7 @@ class Admin::CardsController < Admin::AdminController
 
   # Only allow a trusted parameter "white list" through.
   def card_params
-    params.require(:card).permit(
-      :prompt,
-      :min_players,
-    )
+    params.require(:card).permit(:prompt, :min_players)
   end
 
 end

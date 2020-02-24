@@ -1,0 +1,17 @@
+= form_for [:admin, @card], local: true do |form|
+  - if card.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(card.errors.count, "error")
+        prohibited this card from being saved:
+      %ul
+        - card.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :prompt
+    = form.text_field :prompt, id: :card_prompt
+  .field
+    = form.label :min_players
+    = form.number_field :min_players, id: :card_min_players
+  .actions
+    = form.submit
