@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Rules
+%table
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th Min players
+      %th{colspan: "3"}
+  %tbody
+    - @rules.each do |rule|
+      %tr
+        %td= rule.title
+        %td= rule.body
+        %td= rule.min_players
+        %td= link_to 'Show', [:admin, rule]
+        %td= link_to 'Edit', edit_admin_rule_path(rule)
+        %td= link_to 'Destroy', [:admin, rule], method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Rule', new_admin_rule_path

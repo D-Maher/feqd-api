@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @rule.title
+%p
+  %strong Body:
+  = @rule.body
+%p
+  %strong Min players:
+  = @rule.min_players
+= link_to 'Edit', edit_admin_rule_path(@rule)
+|
+= link_to 'Back', admin_rules_path
