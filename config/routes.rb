@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :rules
   end
 
-  resources :cards
-  resources :decks
+  namespace :api do
+    resources :cards
+    resources :decks
+  end
 end
